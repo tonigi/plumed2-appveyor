@@ -5,7 +5,7 @@ clone_script:
 - cmd: |
     git clone -q --depth=5 --branch=v2.3.2 git://github.com/plumed/plumed2.git C:\projects\plumed2
 build_script:
-- cmd: build
+- build
 test_script:
 - cmd: |
     set PATH=%CD%/plumed2-win/bin;%PATH%
