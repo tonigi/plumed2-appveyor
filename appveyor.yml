@@ -3,7 +3,7 @@ image: Visual Studio 2017
 clone_depth: 5
 clone_script:
 - cmd: |
-    pwd
+    cd
     git clone -q --depth=5 --branch=v2.3.2 git://github.com/plumed/plumed2.git C:\projects\plumed2
 build_script:
 - cmd: |
@@ -12,12 +12,12 @@ build_script:
     set PATH=%mw%;%PATH%
     rem dir /s %mw%
     g++ -v
-    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2/plumed2-win-build
+    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
     make -j2
     make install
 test_script:
 - cmd: |
-    set PATH=%CD%/plumed2-win-build/bin;%PATH%
+    set PATH=C:\projects\plumed2-appveyor\plumed2-win-build/bin;%PATH%
     cd regtest
     make
 artifacts:
