@@ -12,14 +12,14 @@ build_script:
     set PATH=%mw%;%PATH%
     rem dir /s %mw%
     g++ -v
-    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2/plumed2-appveyor
+    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2/plumed2-win-build
     make -j2
     make install
 test_script:
 - cmd: |
-    set PATH=%CD%/plumed2-appveyor/bin;%PATH%
+    set PATH=%CD%/plumed2-win-build/bin;%PATH%
     cd regtest
     make
 artifacts:
-- path: plumed2-appveyor
-- path: plumed2-appveyor\bin\plumed.exe
+- path: plumed2-win-build
+- path: plumed2-win-build\bin\plumed.exe
