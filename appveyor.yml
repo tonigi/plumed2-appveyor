@@ -2,13 +2,13 @@ version: '{branch}-{build}'
 image: Visual Studio 2017
 clone_depth: 5
 clone_script:
-- cmd: >-
+- cmd: |
     git clone -q --depth=5 --branch=v2.3 https://github.com/plumed2/plumed2.git C:\projects\plumed2
     git checkout v2.3.2
 build_script:
 - cmd: build.cmd
 test_script:
-- cmd: >-
+- cmd: |
     set PATH=%CD%/plumed2-win/bin;%PATH%
     cd regtest
     make
