@@ -1,0 +1,28 @@
+version: '{branch}-{build}'
+image: Visual Studio 2017
+clone_depth: 5
+build_script:
+- cmd: >-
+    set mw=C:\msys64\usr\bin
+
+    set PATH=%mw%;%PATH%
+
+    rem dir /s %mw%
+
+    g++ -v
+
+    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2/plumed2-win
+
+    make -j2
+
+    make install
+test_script:
+- cmd: >-
+    set PATH=%CD%/plumed2-win/bin;%PATH%
+
+    cd regtest
+
+    make
+artifacts:
+- path: plumed2-win
+- path: plumed2-win\bin\plumed.exe
