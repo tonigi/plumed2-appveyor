@@ -4,7 +4,6 @@ clone_depth: 5
 clone_script:
 - cmd: |
     git clone -q --depth=5 --branch=v2.3.2 git://github.com/plumed/plumed2.git C:\projects\plumed2
-    cd C:\projects\plumed2
 build_script:
 - cmd: build
 test_script:
