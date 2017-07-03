@@ -17,9 +17,9 @@ build_script:
     make install
 test_script:
 - cmd: |
-    set PATH=C:\projects\plumed2-appveyor\plumed2-win-build/bin;%PATH%
+    set PATH=C:\projects\plumed2-appveyor\plumed2-win-build\bin;%PATH%
     cd regtest
-    make
+    make -j2
 artifacts:
 - path: plumed2-win-build
 - path: plumed2-win-build\bin\plumed.exe
