@@ -8,7 +8,8 @@ clone_script:
 build_script:
 - cmd: |
     cd plumed2-git
-    set mw=C:\msys64\usr\bin
+    rem set mw=C:\msys64\usr\bin
+    set mw=C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\bin
     set PATH=%mw%;%PATH%
     rem dir /s %mw%
     g++ -v
