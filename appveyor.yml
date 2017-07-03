@@ -4,12 +4,13 @@ clone_depth: 0
 clone_script:
 - cmd: |
     cd
-    git clone -q --depth=5 --branch=v2.3.2 git://github.com/plumed/plumed2.git plumed2-git
+    git clone -q --depth=0 --branch=v2.3.2 git://github.com/plumed/plumed2.git plumed2-git
 build_script:
 - cmd: |
     cd plumed2-git
     rem set mw=C:\msys64\usr\bin
-    set mw=C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\bin
+    set mw=C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
+    dir /s %mw%
     set PATH=%mw%;%PATH%
     rem dir /s %mw%
     g++ -v
