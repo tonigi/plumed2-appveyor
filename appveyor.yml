@@ -14,7 +14,7 @@ build_script:
     set PATH=%mw%;%PATH%
     rem dir /s %mw%
     g++ -v
-    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
+    bash ./configure --disable-shared CFLAGS="-fpermissive" LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
     mingw32-make -j2
     make install
 test_script:
