@@ -8,11 +8,10 @@ clone_script:
 build_script:
 - cmd: |
     cd plumed2-git
-    set mw=C:\msys64\usr\bin
+    set mw=C:\Program Files\LLVM\bin
     set PATH=%mw%;%PATH%
-    rem dir /s %mw%
-    g++ -v
-    bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
+    dir /s %mw%
+    bash ./configure --disable-shared CC=clang++ LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
     make -j2
     make install
 test_script:
