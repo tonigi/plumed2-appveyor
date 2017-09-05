@@ -7,13 +7,14 @@ clone_script:
     git clone -q --depth=5 --branch=v2.3.2 git://github.com/plumed/plumed2.git plumed2-git
 build_script:
 - cmd: |
+    choco install msys2
     choco install mingw
     refreshenv
     cd plumed2-git    
     g++ -v
     bash ./configure --disable-shared LDFLAGS="-static -s" --prefix=/c/projects/plumed2-appveyor/plumed2-win-build
-    mingw32-make -j2
-    mingw32-make install
+    make -j2
+    make install
 test_script:
 - cmd: |
     set PATH=C:\projects\plumed2-appveyor\plumed2-win-build\bin;%PATH%
